@@ -1,0 +1,29 @@
+{% extends 'front.html.twig' %}
+
+{% block body %}
+    <h3 class="nk-decorated-h-2"><span><span class="text-main-1">View</span> Actualite</span></h3>
+    <div class="nk-blog-post nk-blog-post-border-bottom">
+        <div class="row vertical-gap">
+            <div class="col-lg-3 col-md-5">
+                <a href="blog-article.html" class="nk-post-img">
+                    <img src="{{ asset('Uploads/image/' ~ actualite.image) }}" alt="{{ actualite.titre }}">
+                    <span class="nk-post-categories">
+                    <span class="bg-main-1">Action</span>
+                </span>
+
+                </a>
+            </div>
+            <div class="col-lg-9 col-md-7">
+                <h2 class="nk-post-title h4"><a href="blog-article.html">{{ actualite.titre }}</a></h2>
+                <div class="nk-post-date mt-10 mb-10">
+                    <span class="fa fa-calendar"></span>
+                    {{ actualite.date.format('d/m/y') }}
+                    <span class="fa fa-comments"></span> <a href="#">0 comments</a>
+                </div>
+                <div class="nk-post-text">
+                    <p>{{ actualite.description }}</p>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
