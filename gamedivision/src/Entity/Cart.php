@@ -14,111 +14,93 @@ class Cart
 {
     /**
      * @var int
-     *
+     *@ORM\ManyToOne(targetEntity="App\Entity\Products", inversedBy="products")ntity="App\Entity\Cart")
      * @ORM\Column(name="cart_id", type="integer", nullable=false)
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="IDENTITY")
      */
-    private int $cartId;
+
+    private $cartId;
 
     /**
      * @var int
      *
      * @ORM\Column(name="product_id", type="integer", nullable=false)
      */
-    private int $productId;
+    private $productId;
 
     /**
      * @var int
      *
      * @ORM\Column(name="quantite", type="integer", nullable=false)
      */
-    private int $quantite;
+    private $quantite;
 
     /**
      * @var int
      *
      * @ORM\Column(name="user_id", type="integer", nullable=false)
      */
-    private int $userId;
+    private $userId;
 
     /**
-     * Cart constructor.
-     * @param int $cartId
-     * @param int $productId
-     * @param int $quantite
-     * @param int $userId
+     * @var float|null
+     *
+     * @ORM\Column(name="total_price", type="float", precision=10, scale=0, nullable=true, options={"default"="NULL"})
      */
-    public function __construct(int $cartId, int $productId, int $quantite, int $userId)
-    {
-        $this->cartId = $cartId;
-        $this->productId = $productId;
-        $this->quantite = $quantite;
-        $this->userId = $userId;
-    }
+    private $totalPrice = NULL;
 
-    /**
-     * @return int
-     */
-    public function getCartId(): int
+    public function getCartId(): ?int
     {
         return $this->cartId;
     }
 
-    /**
-     * @param int $cartId
-     */
-    public function setCartId(int $cartId): void
-    {
-        $this->cartId = $cartId;
-    }
-
-    /**
-     * @return int
-     */
-    public function getProductId(): int
+    public function getProductId(): ?int
     {
         return $this->productId;
     }
 
-    /**
-     * @param int $productId
-     */
-    public function setProductId(int $productId): void
+    public function setProductId(int $productId): self
     {
         $this->productId = $productId;
+
+        return $this;
     }
 
-    /**
-     * @return int
-     */
-    public function getQuantite(): int
+    public function getQuantite(): ?int
     {
         return $this->quantite;
     }
 
-    /**
-     * @param int $quantite
-     */
-    public function setQuantite(int $quantite): void
+    public function setQuantite(int $quantite): self
     {
         $this->quantite = $quantite;
+
+        return $this;
     }
 
-    /**
-     * @return int
-     */
-    public function getUserId(): int
+    public function getUserId(): ?int
     {
         return $this->userId;
     }
 
-    /**
-     * @param int $userId
-     */
-    public function setUserId(int $userId): void
+    public function setUserId(int $userId): self
     {
         $this->userId = $userId;
+
+        return $this;
+    }
+
+    public function getTotalPrice(): ?float
+    {
+        return $this->totalPrice;
+    }
+
+    public function setTotalPrice(?float $totalPrice): self
+    {
+        $this->totalPrice = $totalPrice;
+
+        return $this;
     }
 
 

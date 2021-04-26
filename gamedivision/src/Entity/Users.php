@@ -77,5 +77,106 @@ class Users
      */
     private $userRole = 1;
 
+    public function getUserId(): ?int
+    {
+        return $this->userId;
+    }
+
+    public function getUserName(): ?string
+    {
+        return $this->userName;
+    }
+
+    public function setUserName(string $userName): self
+    {
+        $this->userName = $userName;
+
+        return $this;
+    }
+
+    public function getUserLastname(): ?string
+    {
+        return $this->userLastname;
+    }
+
+    public function setUserLastname(string $userLastname): self
+    {
+        $this->userLastname = $userLastname;
+
+        return $this;
+    }
+
+    public function getUserEmail(): ?string
+    {
+        return $this->userEmail;
+    }
+
+    public function setUserEmail(string $userEmail): self
+    {
+        $this->userEmail = $userEmail;
+
+        return $this;
+    }
+
+    public function getUserPhone(): ?string
+    {
+        return $this->userPhone;
+    }
+
+    public function setUserPhone(string $userPhone): self
+    {
+        $this->userPhone = $userPhone;
+
+        return $this;
+    }
+
+    public function getUserPassword(): ?string
+    {
+        return $this->userPassword;
+    }
+
+    public function setUserPassword(string $userPassword): self
+    {
+        $this->userPassword = $userPassword;
+
+        return $this;
+    }
+
+    public function getUserPhoto(): ?string
+    {
+        return $this->userPhoto;
+    }
+
+    public function setUserPhoto(string $userPhoto): self
+    {
+        $this->userPhoto = $userPhoto;
+
+        return $this;
+    }
+
+    public function getUserGender(): ?string
+    {
+        return $this->userGender;
+    }
+
+    public function setUserGender(string $userGender): self
+    {
+        $this->userGender = $userGender;
+
+        return $this;
+    }
+
+    public function getUserRole(): ?int
+    {
+        return $this->userRole;
+    }
+
+    public function setUserRole(int $userRole): self
+    {
+        $this->userRole = $userRole;
+
+        return $this;
+    }
+
 
 }

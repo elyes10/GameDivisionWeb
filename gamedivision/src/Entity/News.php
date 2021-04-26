@@ -49,5 +49,58 @@ class News
      */
     private $newsType;
 
+    public function getNewsId(): ?int
+    {
+        return $this->newsId;
+    }
+
+    public function getNewsTitle(): ?string
+    {
+        return $this->newsTitle;
+    }
+
+    public function setNewsTitle(string $newsTitle): self
+    {
+        $this->newsTitle = $newsTitle;
+
+        return $this;
+    }
+
+    public function getNewsDescription(): ?string
+    {
+        return $this->newsDescription;
+    }
+
+    public function setNewsDescription(string $newsDescription): self
+    {
+        $this->newsDescription = $newsDescription;
+
+        return $this;
+    }
+
+    public function getNewsImg(): ?string
+    {
+        return $this->newsImg;
+    }
+
+    public function setNewsImg(string $newsImg): self
+    {
+        $this->newsImg = $newsImg;
+
+        return $this;
+    }
+
+    public function getNewsType(): ?string
+    {
+        return $this->newsType;
+    }
+
+    public function setNewsType(string $newsType): self
+    {
+        $this->newsType = $newsType;
+
+        return $this;
+    }
+
 
 }

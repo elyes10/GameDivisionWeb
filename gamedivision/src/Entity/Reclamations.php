@@ -49,5 +49,58 @@ class Reclamations
      */
     private $date;
 
+    public function getUserId(): ?string
+    {
+        return $this->userId;
+    }
+
+    public function setUserId(string $userId): self
+    {
+        $this->userId = $userId;
+
+        return $this;
+    }
+
+    public function getSubject(): ?string
+    {
+        return $this->subject;
+    }
+
+    public function setSubject(string $subject): self
+    {
+        $this->subject = $subject;
+
+        return $this;
+    }
+
+    public function getReclamationId(): ?int
+    {
+        return $this->reclamationId;
+    }
+
+    public function getReclamationContext(): ?string
+    {
+        return $this->reclamationContext;
+    }
+
+    public function setReclamationContext(string $reclamationContext): self
+    {
+        $this->reclamationContext = $reclamationContext;
+
+        return $this;
+    }
+
+    public function getDate(): ?\DateTimeInterface
+    {
+        return $this->date;
+    }
+
+    public function setDate(\DateTimeInterface $date): self
+    {
+        $this->date = $date;
+
+        return $this;
+    }
+
 
 }

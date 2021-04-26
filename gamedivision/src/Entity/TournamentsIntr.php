@@ -35,5 +35,34 @@ class TournamentsIntr
      */
     private $trLink;
 
+    public function getTrId(): ?int
+    {
+        return $this->trId;
+    }
+
+    public function getTrCover(): ?string
+    {
+        return $this->trCover;
+    }
+
+    public function setTrCover(string $trCover): self
+    {
+        $this->trCover = $trCover;
+
+        return $this;
+    }
+
+    public function getTrLink(): ?string
+    {
+        return $this->trLink;
+    }
+
+    public function setTrLink(string $trLink): self
+    {
+        $this->trLink = $trLink;
+
+        return $this;
+    }
+
 
 }

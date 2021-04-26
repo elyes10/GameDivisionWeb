@@ -77,5 +77,106 @@ class TeamIntr
      */
     private $member5Id;
 
+    public function getTeamId(): ?int
+    {
+        return $this->teamId;
+    }
+
+    public function getTeamName(): ?string
+    {
+        return $this->teamName;
+    }
+
+    public function setTeamName(string $teamName): self
+    {
+        $this->teamName = $teamName;
+
+        return $this;
+    }
+
+    public function getTeamLogo(): ?string
+    {
+        return $this->teamLogo;
+    }
+
+    public function setTeamLogo(string $teamLogo): self
+    {
+        $this->teamLogo = $teamLogo;
+
+        return $this;
+    }
+
+    public function getTeamWebsite(): ?string
+    {
+        return $this->teamWebsite;
+    }
+
+    public function setTeamWebsite(string $teamWebsite): self
+    {
+        $this->teamWebsite = $teamWebsite;
+
+        return $this;
+    }
+
+    public function getMember1Id(): ?int
+    {
+        return $this->member1Id;
+    }
+
+    public function setMember1Id(int $member1Id): self
+    {
+        $this->member1Id = $member1Id;
+
+        return $this;
+    }
+
+    public function getMember2Id(): ?int
+    {
+        return $this->member2Id;
+    }
+
+    public function setMember2Id(int $member2Id): self
+    {
+        $this->member2Id = $member2Id;
+
+        return $this;
+    }
+
+    public function getMember3Id(): ?int
+    {
+        return $this->member3Id;
+    }
+
+    public function setMember3Id(int $member3Id): self
+    {
+        $this->member3Id = $member3Id;
+
+        return $this;
+    }
+
+    public function getMember4Id(): ?int
+    {
+        return $this->member4Id;
+    }
+
+    public function setMember4Id(int $member4Id): self
+    {
+        $this->member4Id = $member4Id;
+
+        return $this;
+    }
+
+    public function getMember5Id(): ?int
+    {
+        return $this->member5Id;
+    }
+
+    public function setMember5Id(int $member5Id): self
+    {
+        $this->member5Id = $member5Id;
+
+        return $this;
+    }
+
 
 }

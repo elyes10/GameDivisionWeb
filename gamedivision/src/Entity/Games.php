@@ -42,5 +42,46 @@ class Games
      */
     private $description;
 
+    public function getGameId(): ?int
+    {
+        return $this->gameId;
+    }
+
+    public function getGameName(): ?string
+    {
+        return $this->gameName;
+    }
+
+    public function setGameName(string $gameName): self
+    {
+        $this->gameName = $gameName;
+
+        return $this;
+    }
+
+    public function getGameCover(): ?string
+    {
+        return $this->gameCover;
+    }
+
+    public function setGameCover(string $gameCover): self
+    {
+        $this->gameCover = $gameCover;
+
+        return $this;
+    }
+
+    public function getDescription(): ?string
+    {
+        return $this->description;
+    }
+
+    public function setDescription(string $description): self
+    {
+        $this->description = $description;
+
+        return $this;
+    }
+
 
 }

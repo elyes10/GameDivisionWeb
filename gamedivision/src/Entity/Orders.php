@@ -68,7 +68,7 @@ class Orders
      *
      * @ORM\Column(name="status", type="string", length=20, nullable=false, options={"default"="'''preparation'''"})
      */
-    private $status = '\'\'\'preparation\'\'\'';
+    private $status = 'preparation';
 
     /**
      * @var string
@@ -76,6 +76,107 @@ class Orders
      * @ORM\Column(name="liste_produit", type="string", length=3000, nullable=false)
      */
     private $listeProduit;
+
+    public function getOrderId(): ?string
+    {
+        return $this->orderId;
+    }
+
+    public function getUserId(): ?int
+    {
+        return $this->userId;
+    }
+
+    public function setUserId(int $userId): self
+    {
+        $this->userId = $userId;
+
+        return $this;
+    }
+
+    public function getAdrLivraison(): ?string
+    {
+        return $this->adrLivraison;
+    }
+
+    public function setAdrLivraison(?string $adrLivraison): self
+    {
+        $this->adrLivraison = $adrLivraison;
+
+        return $this;
+    }
+
+    public function getCountry(): ?string
+    {
+        return $this->country;
+    }
+
+    public function setCountry(?string $country): self
+    {
+        $this->country = $country;
+
+        return $this;
+    }
+
+    public function getPostCode(): ?int
+    {
+        return $this->postCode;
+    }
+
+    public function setPostCode(?int $postCode): self
+    {
+        $this->postCode = $postCode;
+
+        return $this;
+    }
+
+    public function getDate(): ?string
+    {
+        return $this->date;
+    }
+
+    public function setDate(?string $date): self
+    {
+        $this->date = $date;
+
+        return $this;
+    }
+
+    public function getTotalPrice(): ?float
+    {
+        return $this->totalPrice;
+    }
+
+    public function setTotalPrice(?float $totalPrice): self
+    {
+        $this->totalPrice = $totalPrice;
+
+        return $this;
+    }
+
+    public function getStatus(): ?string
+    {
+        return $this->status;
+    }
+
+    public function setStatus(string $status): self
+    {
+        $this->status = $status;
+
+        return $this;
+    }
+
+    public function getListeProduit(): ?string
+    {
+        return $this->listeProduit;
+    }
+
+    public function setListeProduit(string $listeProduit): self
+    {
+        $this->listeProduit = $listeProduit;
+
+        return $this;
+    }
 
 
 }

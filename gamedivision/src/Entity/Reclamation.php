@@ -63,5 +63,82 @@ class Reclamation
      */
     private $traite;
 
+    public function getId(): ?int
+    {
+        return $this->id;
+    }
+
+    public function getIdU(): ?int
+    {
+        return $this->idU;
+    }
+
+    public function setIdU(int $idU): self
+    {
+        $this->idU = $idU;
+
+        return $this;
+    }
+
+    public function getContenu(): ?string
+    {
+        return $this->contenu;
+    }
+
+    public function setContenu(string $contenu): self
+    {
+        $this->contenu = $contenu;
+
+        return $this;
+    }
+
+    public function getType(): ?string
+    {
+        return $this->type;
+    }
+
+    public function setType(string $type): self
+    {
+        $this->type = $type;
+
+        return $this;
+    }
+
+    public function getEtat(): ?string
+    {
+        return $this->etat;
+    }
+
+    public function setEtat(string $etat): self
+    {
+        $this->etat = $etat;
+
+        return $this;
+    }
+
+    public function getImage(): ?string
+    {
+        return $this->image;
+    }
+
+    public function setImage(string $image): self
+    {
+        $this->image = $image;
+
+        return $this;
+    }
+
+    public function getTraite(): ?string
+    {
+        return $this->traite;
+    }
+
+    public function setTraite(string $traite): self
+    {
+        $this->traite = $traite;
+
+        return $this;
+    }
+
 
 }
