@@ -13,6 +13,11 @@ use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use Dompdf\Dompdf;
+use Dompdf\Options;
+
+
+
 
 class ReclamationController extends AbstractController
 {
@@ -27,10 +32,11 @@ class ReclamationController extends AbstractController
             'rec' => $rec
         ]);
     }
+
     /**
      * @Route("/d/{id}",name="d")
      */
-    public function supprimer($id,ReclamationRepository $rep)
+    public function supprimer($id, ReclamationRepository $rep)
     {
         $em = $this->getDoctrine()->getManager();
         $rec = $rep->find($id);
@@ -44,15 +50,16 @@ class ReclamationController extends AbstractController
     /**
      * @Route("/update/{id}",name="update")
      */
-    public function valider(int $id){
+    public function valider(int $id)
+    {
         $rec = new Reclamation();
-        $em=$this->getDoctrine()->getManager();
-        $rec=$em->getRepository(Reclamation::class)->find($id);
+        $em = $this->getDoctrine()->getManager();
+        $rec = $em->getRepository(Reclamation::class)->find($id);
         $rec->setTraite("traité");
 
-            $em->flush();
-            $this->addFlash('success', "Blog modifié!");
-            return $this->redirectToRoute('rec');
+        $em->flush();
+        $this->addFlash('success', "Blog modifié!");
+        return $this->redirectToRoute('rec');
 
     }
 
@@ -70,16 +77,16 @@ class ReclamationController extends AbstractController
 
         if ($form->isSubmitted() && $form->isValid()) {
             $file = $form->get('image')->getData();
-            $fileName = md5(uniqid()).'.'.$file->guessExtension();
+            $fileName = md5(uniqid()) . '.' . $file->guessExtension();
             $rec->setImage($fileName);
-            try{
+            try {
                 $file->move(
                     $this->getParameter('Image_directory'),
                     $fileName
                 );
 
+            } catch (FileNotFoundException $e) {
             }
-            catch (FileNotFoundException $e){}
 
             $em = $this->getDoctrine()->getManager();
             $rec->setTraite("non traité");
@@ -92,7 +99,43 @@ class ReclamationController extends AbstractController
 
         }
 
-        return $this->render('reclamation/add.html.twig',array(
-            'form'=> $form->createView()));
+        return $this->render('reclamation/add.html.twig', array(
+            'form' => $form->createView()));
+    }
+
+    /**
+     * @Route("/listec", name="reclamation_listec", methods={"GET"})
+     */
+    public function listp(): Response
+    {
+        // Configure Dompdf according to your needs
+        $pdfOptions = new Options();
+        $pdfOptions->set('defaultFont', 'Arial');
+
+        // Instantiate Dompdf with our options
+        $dompdf = new Dompdf($pdfOptions);
+
+        $rec = $this->getDoctrine()
+            ->getRepository(Reclamation::class)
+            ->findAll();
+
+        // Retrieve the HTML generated in our twig file
+        $html = $this->renderView('reclamation/listec.html.twig', [
+            'rec' => $rec,
+        ]);
+
+        // Load HTML to Dompdf
+        $dompdf->loadHtml($html);
+
+        // (Optional) Setup the paper size and orientation 'portrait' or 'portrait'
+        $dompdf->setPaper('A4', 'portrait');
+
+        // Render the HTML as PDF
+        $dompdf->render();
+
+        // Output the generated PDF to Browser (force download)
+        $dompdf->stream("My.pdf", [
+            "Attachment" => false
+        ]);
     }
 }
